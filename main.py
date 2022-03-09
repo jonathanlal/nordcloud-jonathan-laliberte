@@ -54,3 +54,11 @@ def friendly_print(device_position, best_station_position, best_station_speed):
         print(f'No network station within reach for point {device_position_as_string}')
 
 
+def check_all_device_speeds():
+    for device_position in devices:
+        best_station_speed, best_station_position = find_best_station(numpy.array(device_position))
+        friendly_print(device_position, best_station_position, best_station_speed)
+
+
+check_all_device_speeds()
+
