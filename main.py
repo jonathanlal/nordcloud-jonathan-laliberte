@@ -26,3 +26,17 @@ def calculate_station_speed(reach, station_distance):
     if station_distance > reach:
         speed = 0
     return speed
+
+
+def find_best_station(device_position):
+    best_station_speed = 0
+    best_station_position = []
+    for station in stations:
+        station_position = station[:2]
+        station_reach = station[-1]
+        station_distance = calculate_station_distance(station_position, device_position)
+        station_speed = calculate_station_speed(station_reach, station_distance)
+        if station_speed > best_station_speed:
+            best_station_speed = station_speed
+            best_station_position = station_position
+    return best_station_speed, best_station_position
