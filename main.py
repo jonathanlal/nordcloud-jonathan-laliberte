@@ -40,3 +40,17 @@ def find_best_station(device_position):
             best_station_speed = station_speed
             best_station_position = station_position
     return best_station_speed, best_station_position
+
+
+def friendly_print(device_position, best_station_position, best_station_speed):
+    device_position_as_string = ','.join(map(str, device_position))
+    best_station_position_as_string = ','.join(map(str, best_station_position))
+    best_station_speed_formatted = round(best_station_speed, 1)
+    if best_station_speed != 0:
+        print('Best network station for point '
+              f'{device_position_as_string} is {best_station_position_as_string} '
+              f'with speed {best_station_speed_formatted}')
+    else:
+        print(f'No network station within reach for point {device_position_as_string}')
+
+
