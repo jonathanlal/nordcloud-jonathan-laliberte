@@ -21,3 +21,8 @@ def calculate_station_distance(a, b):
     return distance.euclidean(a, b)
 
 
+def calculate_station_speed(reach, station_distance):
+    speed = (reach - station_distance) ** 2
+    if station_distance > reach:
+        speed = 0
+    return speed
